@@ -2,13 +2,24 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from "@react-navigation/stack"
-import { } from './screens'
+import { Home, Resturant, OrderDelivery} from './screens'
+
+const Stack = createStackNavigator()
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false
+        }}
+        initialRouteName={'OrderDelivery'}
+      >
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name='Resturant' component={Resturant} />
+        <Stack.Screen name='OrderDelivery' component={OrderDelivery} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
