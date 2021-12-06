@@ -9,9 +9,9 @@ import { COLORS, icons } from '../constants'
 
 const Tab = createBottomTabNavigator()
 
-const TabBarCustomButton = ({ accessiblityState, onPress, children }) =>
+const TabBarCustomButton = ({ accessibilityState, onPress, children }) =>
 {
-    let isSelected =  accessiblityState.isSelected
+    let isSelected =  accessibilityState.selected
 
     if (isSelected ) {
         return(
@@ -93,8 +93,8 @@ const CustomTabBar = (props) =>
 
 const Tabs = () => (
     <Tab.Navigator
-        tabBarOptions={{
-            showLabel: false,
+        screenOptions={{
+            tabBarShowLabel: false,
             style: {
                 position: 'absolute',
                 left: 0,
