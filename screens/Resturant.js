@@ -1,13 +1,68 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, Text,SafeAreaView, Image, TouchableOpacity, Animated, StyleSheet } from 'react-native'
 
-const Resturant = () =>
+import { isIphoneX } from 'react-native-iphone-x-helper'
+import { icons, SIZES, FONTS, COLORS } from '../constants'
+
+const Resturant = ({ route, navigation }) =>
 {
+    const scrollX = new Animated.Value(0);
+    const [resturant, setResturant] = useState(null)
+    const [currentLocation, setCurrentLocation] = useState(null)
+    const [orderItems, setOrderItems] = useState([])
+
+    useEffect(() =>{
+        let { item, currentLocation } = route.params
+
+        setResturant(item)
+        setCurrentLocation(currentLocation)
+    })
+
+    function editOrder(action, menuId, price) {
+        let orderList = orderItems.slice()
+        let item = orderList.filter(ix => ix.menuId == menuId)
+
+        if (action == '+') {
+            if(item.length > 0) {
+                let newQty = item[0].qty + 1
+                item[0].qty = newQty
+                item[0].total = item[0].qty * price
+            }
+            else {
+                const newItem = {
+                    menuId: menuId,
+                    qty: 1,
+                    price: price,
+                    total: price
+                }
+                orderList.push(newItem)
+            }
+            setOrderItems(orderList)
+        }
+        else {
+            if (item.length > 0){
+                if(item[0].qty > 0) {
+                    let newqty = item[0].qty - 1
+                    item[0].qty = newqty
+                    item[0].total = newqty * price
+                }
+            }
+            setOrderItems(orderList)
+        }
+    }
+
     return(
-        <View>
-            <Text>Resturant</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <Text>How dare you</Text>
+        </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: COLORS.lightGray2
+    }
+})
 
 export default Resturant
