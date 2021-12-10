@@ -51,6 +51,31 @@ const Resturant = ({ route, navigation }) =>
         }
     }
 
+    const getOrderQantity = (menuId) =>
+    {
+        let orderList = orderItems.filter(item => item.menuId == menuId)
+
+        if (orderList.length > 0){
+            return orderList[0].qty
+        }
+
+        return 0
+    }
+
+    const getBasketItemCount = () => 
+    {
+        let itemCount = orderItems.reduce((a, b) => a + (b.qty || 0), 0)
+
+        return itemCount
+    }
+
+    const sumOrder = () => 
+    {
+        let total = orderItems.reduce((a, b) => a + (b.total || 0), 0)
+
+        return total.toFixed(2)
+    }
+
     return(
         <SafeAreaView style={styles.container}>
             <Text>How dare you</Text>
