@@ -117,7 +117,7 @@ export const ResturantData = [
         name: "ByProgrammers Pizza",
         rating: 4.8,
         categories: [2, 4, 6],
-        priceRating: expensive,
+        priceRating: Cost.expensive,
         photo: images.pizza_restaurant,
         duration: "15 - 20 min",
         location: {
@@ -169,7 +169,7 @@ export const ResturantData = [
         name: "ByProgrammers Hotdogs",
         rating: 4.8,
         categories: [3],
-        priceRating: expensive,
+        priceRating: Cost.expensive,
         photo: images.hot_dog_restaurant,
         duration: "20 - 25 min",
         location: {
@@ -196,7 +196,7 @@ export const ResturantData = [
         name: "ByProgrammers Sushi",
         rating: 4.8,
         categories: [8],
-        priceRating: expensive,
+        priceRating: Cost.expensive,
         photo: images.japanese_restaurant,
         duration: "10 - 15 min",
         location: {
@@ -223,7 +223,7 @@ export const ResturantData = [
         name: "ByProgrammers Cuisine",
         rating: 4.8,
         categories: [1, 2],
-        priceRating: affordable,
+        priceRating: Cost.affordable,
         photo: images.noodle_shop,
         duration: "15 - 20 min",
         location: {
@@ -276,7 +276,7 @@ export const ResturantData = [
         name: "ByProgrammers Dessets",
         rating: 4.9,
         categories: [9, 10],
-        priceRating: affordable,
+        priceRating: Cost.affordable,
         photo: images.kek_lapis_shop,
         duration: "35 - 40 min",
         location: {
