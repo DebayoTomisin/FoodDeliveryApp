@@ -279,6 +279,26 @@ const Resturant = ({ route, navigation }) =>
         return(
             <View>
                 { renderDots()}
+                <View style={{
+                    backgroundColor: COLORS.white,
+                    borderTopLeftRadius:40,
+                    borderTopRightRadius: 40,
+                }}>
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            paddingVertical: SIZES.padding * 2,
+                            paddingHorizontal: SIZES.padding * 3,
+                            borderBottomColor: COLORS.lightGray2,
+                            borderBottomWidth: 1
+                        }}
+                    >
+                        <Text style={{...FONTS.h3 }}>{getBasketItemCount()} items in Cart</Text>
+                        <Text style={{ ...FONTS.h3 }}>{sumOrder()}</Text>
+                    </View>
+
+                </View>
             </View>
         )
     }
